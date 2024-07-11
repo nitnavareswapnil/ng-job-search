@@ -1,0 +1,27 @@
+.row {
+    padding-bottom: 10px;
+}
+
+.jobTitle {
+    padding-left: 20px;
+}
+
+.favorite-icon {
+    color: white;
+    cursor: pointer;
+    background-color: #0000
+    
+}
+
+.active {
+    color : #ffc107;
+}
+
+.logo {
+    border-radius: 12px;
+}
+
+.noRecords {
+    margin-top: 8rem;
+    text-align: center;
+}

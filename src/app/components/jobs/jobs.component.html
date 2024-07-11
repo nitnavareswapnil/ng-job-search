@@ -1,0 +1,36 @@
+<ng-container *ngIf='!showFavorite; else showFavoriteJobs'>
+    <div class="row" *ngFor="let job of jobsList; let i = index">
+        <div class="col-md-1">
+            <img [src]="job.companyLogo" alt="Company Logo" class="logo" />
+        </div>
+        <div class="col-md-10 jobTitle">
+            <div>
+                <b><a [routerLink]="['/jobs',job.id]">{{job.title}}</a></b>
+            </div>
+            <small> company : {{job?.companyName}}, Reference : {{job?.reference}} </small>
+        </div>
+        <div class="col-md-1">
+            <button (click)="toggleFavJob(i, job)" id="{{job.id}}" class="favorite-icon"
+                [class.active]="isFavJob(job.id)">
+                <i class="fa fa-star"></i>
+            </button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #showFavoriteJobs>
+    <div class="row" *ngFor="let job of favJobs; let i = index">
+        <div class="col-md-1">
+            <img [src]="job.companyLogo" alt="Company Logo" />
+        </div>
+        <div class="col-md-10 jobTitle">
+            <div>
+                <b><a [routerLink]="['/jobs',job.id]">{{job.title}}</a></b>
+            </div>
+            <small> company : {{job?.companyName}}, Reference : {{job?.reference}}</small>
+        </div>
+    </div>
+    <div class="noRecords" *ngIf="favJobs?.length === 0">
+        <span style="text-transform: uppercase; font-size: larger; color: rgb(206, 246, 125);">Pick your favorite jobs</span>
+    </div>
+</ng-template>

@@ -1,0 +1,33 @@
+<div *ngIf="jobDescription">
+    <div class="container">
+        <a (click)="backToJobsList()"><i class="fa fa-home" aria-hidden="true" ></i> Back </a>
+        <div class="row header">
+            <div class="col-md-1">
+                <img [src]="jobDescription.companyLogo" alt="Company Logo" class="logo" />   
+            </div>
+            <div class="title">
+                <h1>{{jobDescription.title}}</h1>
+                <mark class="detail">{{jobDescription.types}}</mark>
+                <mark class="detail">{{jobDescription.industries}}</mark>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>
+                    <span class="jobDescriptionData"> Published Date :</span>
+                    {{ jobDescription.publishDate | date : "MM/dd/yyyy" }}
+                </p>
+                <p>
+                    <span class="jobDescriptionData">Location : </span>{{ jobDescription.location }}
+                </p>
+                <p>
+                    <span class="jobDescriptionData">Reference : </span>{{ jobDescription.reference }}
+                </p>
+                <p>
+                    <span class="jobDescriptionData">Description : </span>
+                </p>
+                <p [innerHTML]="jobDescription.description"></p>
+            </div>
+        </div>
+    </div>
+</div>
